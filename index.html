@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Think-C — Komunitas Keamanan Siber Indonesia</title>
+<meta name="description" content="Think-C komunitas keamanan siber Indonesia. Tools, edukasi, dan pelatihan."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/main.css"/>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"/>
+</head>
+<body>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="grid-bg" aria-hidden="true"></div>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" onclick="showSection('home')" style="cursor:pointer">
+      <span class="logo-shield">&#x2B21;</span>
+      <span class="logo-text">THINK-C</span>
+    </a>
+    <ul class="nav-links">
+      <li><a class="nav-link" data-section="home" onclick="showSection('home')">Home</a></li>
+
+      <!-- Tools dropdown -->
+      <li class="nav-item has-dropdown">
+        <a class="nav-link">
+          Tools
+          <span class="chev">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><path d="M6 9l6 6 6-6"/></svg>
+          </span>
+        </a>
+        <div class="nav-dropdown">
+          <!-- Patriot Ultra Blocker — tersedia, dengan sub-items -->
+          <div class="nav-dropdown-item active" data-section="feature" onclick="showSection('home'); setTimeout(()=>document.getElementById('sec-solutions').scrollIntoView({behavior:'smooth'}),100)">
+            <div class="nav-dropdown-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div class="nav-dropdown-text">
+              <span class="nav-dropdown-name">Patriot Ultra Blocker</span>
+              <span class="nav-dropdown-sub">&#x2022; Endpoint Protection &#xB7; v1.0.3</span>
+            </div>
+          </div>
+          <!-- sub-items: Feature, Guide, Download -->
+          <div class="nav-dropdown-sub-group">
+            <div class="nav-dropdown-sub-item" onclick="showSection('feature')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg>
+              Feature
+            </div>
+            <div class="nav-dropdown-sub-item" onclick="showSection('guide')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+              Guide
+            </div>
+            <div class="nav-dropdown-sub-item" onclick="showSection('download')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              Download
+            </div>
+          </div>
+
+          <div class="nav-dropdown-divider"></div>
+
+          <div class="nav-dropdown-item" style="cursor:default">
+            <div class="nav-dropdown-icon coming">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div class="nav-dropdown-text">
+              <span class="nav-dropdown-name" style="color:var(--text-muted)">Patriot Data Shield</span>
+              <span class="nav-dropdown-sub">Coming Soon &#xB7; DLP</span>
+            </div>
+          </div>
+          <div class="nav-dropdown-item" style="cursor:default">
+            <div class="nav-dropdown-icon coming">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div class="nav-dropdown-text">
+              <span class="nav-dropdown-name" style="color:var(--text-muted)">Patriot SIEM</span>
+              <span class="nav-dropdown-sub">Coming Soon &#xB7; SIEM</span>
+            </div>
+          </div>
+          <div class="nav-dropdown-item" style="cursor:default">
+            <div class="nav-dropdown-icon coming">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            </div>
+            <div class="nav-dropdown-text">
+              <span class="nav-dropdown-name" style="color:var(--text-muted)">Patriot Firewall</span>
+              <span class="nav-dropdown-sub">Coming Soon &#xB7; Network</span>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li><a class="nav-link" data-section="home" onclick="showSection('home'); setTimeout(()=>document.getElementById('sec-training').scrollIntoView({behavior:'smooth'}),100)">Training</a></li>
+
+      <li><a href="https://github.com/thinkc-2023" class="nav-link nav-gh" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        GitHub
+      </a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION: HOME
+════════════════════════════════════════════════════ -->
+<div id="sec-home" class="spa-section active">
+
+  <!-- HERO -->
+  <section class="community-hero">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      KOMUNITAS KEAMANAN SIBER &#xB7; MADE IN INDONESIA &#x1F1EE;&#x1F1E9;
+    </div>
+    <h1 class="hero-title">
+      <span class="hero-title-top">THINK-C</span>
+      <span class="hero-title-main">CYBER<br>SECURITY<br>COMMUNITY</span>
+    </h1>
+    <p class="hero-sub">Komunitas keamanan siber Indonesia yang menghadirkan tools, edukasi, dan pelatihan untuk membangun ekosistem keamanan digital yang lebih kuat.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" onclick="showSection('home'); setTimeout(()=>document.getElementById('sec-solutions').scrollIntoView({behavior:'smooth'}),100)" style="cursor:pointer">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Lihat Solutions
+      </a>
+      <a class="btn btn-outline" onclick="showSection('home'); setTimeout(()=>document.getElementById('sec-training').scrollIntoView({behavior:'smooth'}),100)" style="cursor:pointer">
+        Program Training
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" data-target="4">0</span><span class="stat-label">Products Roadmap</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num" data-target="3">0</span><span class="stat-label">Training Levels</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num" data-suffix="K+">111</span><span class="stat-label">IOC Hash Entries</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num" data-target="2026">0</span><span class="stat-label">Est. Indonesia</span></div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-label">LIVE THREAT FEED</div>
+    <div class="ticker">
+      <div class="ticker-inner" id="ticker">
+        <span>&#x1F534; BLOCKED &#xB7; mimikatz.exe &#xB7; EDR Killer Tool &#xB7; SHA256 match</span>
+        <span>&#x1F7E1; ALERT &#xB7; powershell.exe &#xB7; LOLBin chain detected &#xB7; Score +15</span>
+        <span>&#x1F534; BLOCKED &#xB7; wannacry_v2.exe &#xB7; Ransomware Hash &#xB7; SHA256 match</span>
+        <span>&#x1F7E1; ALERT &#xB7; 185.220.101.42 &#xB7; Geo Block &#xB7; CN &#x2192; Port 3389 &#xB7; Weekend</span>
+        <span>&#x1F534; BLOCKED &#xB7; cobalt_beacon.exe &#xB7; C2 Beacon pattern &#xB7; Score 31</span>
+        <span>&#x2705; RESTORED &#xB7; document.docx &#xB7; AutoRollback &#xB7; 3 files recovered</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TWO PILLARS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">// MISI KAMI</div>
+        <h2 class="section-title">Dua Pilar <span class="accent">Think-C</span></h2>
+        <p class="section-desc">Think-C bergerak pada dua bidang utama: mengembangkan tools keamanan siber dan menyelenggarakan edukasi serta pelatihan untuk komunitas Indonesia.</p>
+      </div>
+      <div class="pillar-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <div class="pillar-title">Solusi Tools Keamanan</div>
+          <p class="pillar-desc">Mengembangkan perangkat lunak keamanan siber yang dirancang khusus untuk kebutuhan organisasi Indonesia. Dari endpoint protection, firewall, data shield, hingga SIEM terintegrasi.</p>
+          <a class="pillar-link" onclick="showSection('home'); setTimeout(()=>document.getElementById('sec-solutions').scrollIntoView({behavior:'smooth'}),100)" style="cursor:pointer">Lihat semua tools <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <div class="pillar-title">Edukasi &amp; Pelatihan</div>
+          <p class="pillar-desc">Program pelatihan keamanan siber berjenjang — Foundation, Associate, dan Professional — yang dirancang untuk membangun kompetensi dari dasar hingga tingkat ahli siap industri.</p>
+          <a class="pillar-link" onclick="showSection('home'); setTimeout(()=>document.getElementById('sec-training').scrollIntoView({behavior:'smooth'}),100)" style="cursor:pointer">Lihat program training <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="section section-dark" id="sec-solutions">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">// SOLUSI TOOLS</div>
+        <h2 class="section-title">Security <span class="accent">Tools Suite</span></h2>
+        <p class="section-desc">Ekosistem tools keamanan siber buatan Indonesia untuk melindungi endpoint, jaringan, dan data organisasi Anda.</p>
+      </div>
+      <div class="solutions-grid">
+        <div class="sol-card active">
+          <div class="sol-badge active-badge"><span style="width:7px;height:7px;border-radius:50%;background:var(--success);box-shadow:0 0 8px var(--success);display:inline-block;animation:blink 1.5s infinite"></span> TERSEDIA &#xB7; v1.0.3</div>
+          <div class="sol-name">Patriot Ultra Blocker</div>
+          <div class="sol-cat">// ENDPOINT PROTECTION &#xB7; MINI-EDR</div>
+          <p class="sol-desc">Solusi endpoint protection &amp; anti-ransomware berbasis Windows. Real-time process monitoring, Geo IP control, AutoRollback, YARA integration, dan SIEM support.</p>
+          <div class="sol-tags"><span class="tag">SHA-256 + SHA-1</span><span class="tag">Anti-Ransomware</span><span class="tag">Geo IP Block</span><span class="tag">AutoRollback</span><span class="tag">YARA Engine</span></div>
+          <div style="margin-top:20px">
+            <a class="btn btn-primary btn-sm" onclick="showSection('feature')" style="cursor:pointer">Lihat Fitur</a>
+            <a class="btn btn-outline btn-sm" onclick="showSection('download')" style="cursor:pointer;margin-left:8px">Download</a>
+          </div>
+        </div>
+        <div class="sol-card coming">
+          <div class="sol-badge coming-badge">&#x23F3; COMING SOON</div>
+          <div class="sol-name">Patriot Data Shield</div>
+          <div class="sol-cat">// DATA PROTECTION &#xB7; DLP</div>
+          <p class="sol-desc">Solusi perlindungan data dan pencegahan kebocoran informasi (DLP) untuk organisasi. Enkripsi data sensitif, kontrol akses, dan monitoring transfer data.</p>
+          <div class="sol-tags"><span class="tag">DLP</span><span class="tag">Enkripsi Data</span><span class="tag">Akses Kontrol</span></div>
+        </div>
+        <div class="sol-card coming">
+          <div class="sol-badge coming-badge">&#x23F3; COMING SOON</div>
+          <div class="sol-name">Patriot SIEM</div>
+          <div class="sol-cat">// SECURITY INFORMATION &amp; EVENT MANAGEMENT</div>
+          <p class="sol-desc">Platform SIEM lokal yang ringan dan efisien. Agregasi log, korelasi event, deteksi anomali, dan dashboard real-time untuk SOC tim kecil hingga enterprise.</p>
+          <div class="sol-tags"><span class="tag">Log Aggregation</span><span class="tag">Event Correlation</span><span class="tag">SOC Dashboard</span></div>
+        </div>
+        <div class="sol-card coming">
+          <div class="sol-badge coming-badge">&#x23F3; COMING SOON</div>
+          <div class="sol-name">Patriot Firewall</div>
+          <div class="sol-cat">// NETWORK SECURITY &#xB7; NEXT-GEN FIREWALL</div>
+          <p class="sol-desc">Next-generation firewall dengan deep packet inspection, application layer filtering, dan threat intelligence feed terintegrasi untuk jaringan organisasi Indonesia.</p>
+          <div class="sol-tags"><span class="tag">Deep Packet Inspection</span><span class="tag">App Layer Filter</span><span class="tag">Threat Intel</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINING -->
+  <section class="section" id="sec-training">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">// SOLUSI EDUKASI</div>
+        <h2 class="section-title">Program <span class="accent">Cyber Defender</span></h2>
+        <p class="section-desc">Program pelatihan terstruktur untuk membangun kapabilitas pertahanan siber end-to-end, mulai dari fundamental hingga advanced SOC operations, threat detection, dan incident response.</p>
+      </div>
+      <div class="training-grid">
+        <div class="train-card">
+          <div class="train-level-badge level-foundation"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> LEVEL 1 &#xB7; FOUNDATION</div>
+          <div class="train-title">Cyber Defender Foundation</div>
+          <div class="train-subtitle">// Dasar Pertahanan Keamanan Siber untuk Pemula</div>
+          <p class="train-desc">Program pengantar yang berfokus pada konsep dasar pertahanan sistem dan jaringan dari ancaman siber.</p>
+          <div class="train-modules">
+            <div class="train-module-title">// MATERI UTAMA</div>
+            <div class="train-module-item">Fundamental pertahanan siber &amp; CIA Triad</div>
+            <div class="train-module-item">Pengenalan ancaman: malware, phishing, social engineering</div>
+            <div class="train-module-item">Dasar monitoring jaringan &amp; log</div>
+            <div class="train-module-item">Dasar Antivirus &amp; endpoint protection</div>
+            <div class="train-module-item">Keamanan autentikasi &amp; MFA</div>
+            <div class="train-module-item">Pengantar SIEM &amp; alerting</div>
+          </div>
+          <div class="train-meta">
+            <div class="train-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>16 Jam</div>
+            <div class="train-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Semua Level</div>
+            <div class="train-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>Sertifikat Foundation</div>
+          </div>
+        </div>
+        <div class="train-card">
+          <div class="train-level-badge level-associate"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> LEVEL 2 &#xB7; ASSOCIATE</div>
+          <div class="train-title">Cyber Defender Associate</div>
+          <div class="train-subtitle">// Monitoring, Detection &amp; Incident Response</div>
+          <p class="train-desc">Program menengah yang berfokus pada kemampuan operasional seorang cyber defender dalam mendeteksi, menganalisis, dan merespons ancaman secara real-time.</p>
+          <div class="train-modules">
+            <div class="train-module-title">// MATERI UTAMA</div>
+            <div class="train-module-item">Network security monitoring &amp; traffic analysis</div>
+            <div class="train-module-item">SIEM fundamentals &amp; use case development</div>
+            <div class="train-module-item">Log analysis &amp; threat detection</div>
+            <div class="train-module-item">Incident response lifecycle (NIST-based)</div>
+            <div class="train-module-item">Endpoint Detection & Response (EDR)</div>
+            <div class="train-module-item">Threat intelligence &amp; basic threat hunting</div>
+          </div>
+          <div class="train-meta">
+            <div class="train-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>32 Jam</div>
+            <div class="train-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Lulus Foundation</div>
+            <div class="train-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>Sertifikat Associate</div>
+          </div>
+        </div>
+        <div class="train-card">
+          <div class="train-level-badge level-professional"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> LEVEL 3 &#xB7; PROFESSIONAL</div>
+          <div class="train-title">Cyber Defender Professional</div>
+          <div class="train-subtitle">// Advanced Detection, Threat Hunting &amp; SOC Operations</div>
+          <p class="train-desc">Program tingkat lanjut untuk profesional yang ingin menjadi bagian dari SOC (Security Operations Center) atau tim Blue Team tingkat lanjut.</p>
+          <div class="train-modules">
+            <div class="train-module-title">// MATERI UTAMA</div>
+            <div class="train-module-item">Advanced threat hunting techniques</div>
+            <div class="train-module-item">Malware analysis (static & behavioral)</div>
+            <div class="train-module-item">Incident response &amp; digital forensics (advanced)</div>
+            <div class="train-module-item">SIEM engineering &amp; detection tuning</div>
+            <div class="train-module-item">Security automation (SOAR)</div>
+            <div class="train-module-item">Security architecture &amp; Zero Trust (defensive design)</div>
+          </div>
+          <div class="train-meta">
+            <div class="train-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>48 Jam</div>
+            <div class="train-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Lulus Associate</div>
+            <div class="train-meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>Sertifikat Profesional</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="cta-band">
+        <div class="section-tag" style="text-align:center;margin-bottom:16px">// BERGABUNG</div>
+        <h2 class="cta-title">Jadilah Bagian dari<br><span class="accent">Think-C Community</span></h2>
+        <p class="cta-desc">Bersama-sama membangun ekosistem keamanan siber Indonesia yang lebih kuat. Kontribusi, belajar, dan tumbuh bersama komunitas.</p>
+        <div class="cta-actions">
+          <a href="https://chat.whatsapp.com/CQpYSRlRDdbAKuLKruhcVo" class="btn btn-primary" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            WAG Think-C
+          </a>
+          <a href="mailto:thinkc2023@proton.me" class="btn btn-outline">Daftar Training</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /sec-home -->
+
+<!-- ════════════════════════════════════════════════════
+     SECTION: FEATURE (Patriot Ultra Blocker)
+════════════════════════════════════════════════════ -->
+<div id="sec-feature" class="spa-section">
+  <div style="height:var(--nav-h)"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="grid-bg" aria-hidden="true"></div>
+
+
+
+
+<div class="page-hero">
+
+<span class="page-hero-tag">// FULL FEATURES</span>
+
+<h1 class="page-hero-title">
+Detection <span class="accent">Capabilities</span>
+</h1>
+
+<p class="page-hero-desc">
+Each protection layer is designed to catch threats that bypass the previous layer — from IOC hash detection to behavioral AI scoring.
+</p>
+
+</div>
+
+
+<section class="section" style="padding-top:0">
+<div class="container">
+
+<div class="section-header" style="text-align:left;margin-bottom:40px">
+<div class="section-tag">// LAYER 1 — IDENTITY</div>
+<h2 class="section-title">
+Hash & Process <span class="accent">Detection</span>
+</h2>
+</div>
+
+<div class="features-grid">
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">SHA-256 + SHA-1 Dual Hash</h3>
+
+<p class="feat-desc">
+IOC database supports both formats. SHA-256 as primary, SHA-1 as fallback. Hash result caching prevents re-computing identical files — capped at 5,000 entries.
+</p>
+
+<div class="feat-tags">
+<span class="tag">Hash Cache</span>
+<span class="tag">5000 entry cap</span>
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">Adaptive Scan Rate</h3>
+
+<p class="feat-desc">
+Scan intervals automatically adjust: 3 seconds during active threats, increasing to 15 seconds when CPU exceeds 75% or system is idle. Saves resources without sacrificing responsiveness.
+</p>
+
+<div class="feat-tags">
+<span class="tag">3–15 sec</span>
+<span class="tag">CPU-aware</span>
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">EDR Killer Detection</h3>
+
+<p class="feat-desc">
+Tools designed to disable AV/EDR receive an immediate score of 80 — blocked instantly without score accumulation. Detection via SHA-256 or SHA-1 hash.
+</p>
+
+<div class="feat-tags">
+<span class="tag">Score 80 instant</span>
+<span class="tag">No accumulation</span>
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">Process Reputation Score</h3>
+
+<p class="feat-desc">
+Each process maintains a cumulative reputation score across sessions. Reputation above 40 triggers immediate blocking without further evaluation.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="section section-dark">
+<div class="container">
+
+<div class="section-header" style="text-align:left;margin-bottom:40px">
+<div class="section-tag">// LAYER 2 — BEHAVIOR</div>
+<h2 class="section-title">
+Behavior <span class="accent">Engine</span>
+</h2>
+</div>
+
+<div class="features-grid">
+
+<div class="feat-card fade-in feat-card-large">
+<div class="feat-content">
+
+<h3 class="feat-title">
+Anti-Ransomware — Multi-Signal Detection
+</h3>
+
+<p class="feat-desc">
+Patriot detects ransomware from multiple behavioral signals simultaneously. No single technique — all signals contribute to a cumulative PID score.
+</p>
+
+<div class="feat-tags">
+<span class="tag">Mass file operation</span>
+<span class="tag">High entropy write</span>
+<span class="tag">Rename burst</span>
+<span class="tag">Slow-encrypt pattern</span>
+<span class="tag">Ransom note scan</span>
+</div>
+
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">LOLBin Detection</h3>
+
+<p class="feat-desc">
+Monitoring 23 Living-Off-The-Land binaries including PowerShell, Certutil, MSHTA, Rundll32, and Regsvr32. Detects abnormal usage based on parent-child execution context.
+</p>
+
+<div class="feat-tags">
+<span class="tag">23 binaries</span>
+<span class="tag">Parent chain</span>
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">Attack Chain Correlation</h3>
+
+<p class="feat-desc">
+Multi-stage correlation: suspicious downloads, execution, lateral movement, and exfiltration. Each stage increases the threat score — full patterns trigger immediate blocking.
+</p>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">Fileless Detection</h3>
+
+<p class="feat-desc">
+Detects in-memory execution via PowerShell encoded commands, WMI subscriptions, and script engine abuse. No disk file required — behavior patterns are sufficient.
+</p>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">Credential Dump Detection</h3>
+
+<p class="feat-desc">
+Detects attempts to read lsass.exe, dump SAM databases, and tools from the Mimikatz family. Alerts are deduplicated per PID to prevent notification spam.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="section">
+<div class="container">
+
+<div class="section-header" style="text-align:left;margin-bottom:40px">
+<div class="section-tag">// LAYER 3 — NETWORK</div>
+
+<h2 class="section-title">
+Network <span class="accent">Protection</span>
+</h2>
+</div>
+
+<div class="features-grid">
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">Network Denylist (Blacklist)</h3>
+
+<p class="feat-desc">
+Blocks malicious IPs and domains using the Windows Firewall API. Uses a non-blocking batch system — IPs are queued and flushed every 5 seconds.
+</p>
+
+<div class="feat-tags">
+<span class="tag">Batch flush 5s</span>
+<span class="tag">Non-blocking</span>
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">URLhaus Feed (Abuse.ch)</h3>
+
+<p class="feat-desc">
+Automatic synchronization every 6 hours with the public URLhaus feed — active malware domains and URLs. Zero configuration and no API key required.
+</p>
+
+<div class="feat-tags">
+<span class="tag">Zero-config</span>
+<span class="tag">Async download</span>
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">C2 Beacon + DGA Detection</h3>
+
+<p class="feat-desc">
+Detects periodic outbound connections indicating C2 beaconing. Includes detection of algorithmically generated domains (DGA) using entropy and character pattern analysis.
+</p>
+</div>
+
+
+<div class="feat-card fade-in feat-card-large">
+<div class="feat-content">
+
+<h3 class="feat-title">
+Geo IP + Time Control — New Feature
+</h3>
+
+<p class="feat-desc">
+Blocks inbound connections based on country origin and time schedule. Default rule blocks SMB/RDP access from outside Indonesia during weekends.
+</p>
+
+<div class="feat-tags">
+<span class="tag">20 rules max</span>
+<span class="tag">GeoIP cache 1h</span>
+<span class="tag">SMB 445 · RDP 3389</span>
+<span class="tag">Local IP exempt</span>
+</div>
+
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">Lateral Movement Detection</h3>
+
+<p class="feat-desc">
+Detects PsExec, WMI remote execution, RDP brute force attempts, and suspicious lateral movement patterns across the network.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="section section-dark">
+
+<div class="container">
+
+<div class="section-header" style="text-align:left;margin-bottom:40px">
+
+<div class="section-tag">// LAYER 4 — RESPONSE</div>
+
+<h2 class="section-title">
+Protection & <span class="accent">Recovery</span>
+</h2>
+
+</div>
+
+
+<div class="features-grid">
+
+<div class="feat-card fade-in">
+
+<h3 class="feat-title">Suspend → Kill → Quarantine</h3>
+
+<p class="feat-desc">
+Malicious processes are suspended first (I/O freeze) before termination — preventing ransomware from writing additional files during the kill phase. Files are quarantined using AES-256 encryption.
+</p>
+
+<div class="feat-tags">
+<span class="tag">NtSuspendProcess</span>
+<span class="tag">AES-256 .qtn</span>
+</div>
+
+</div>
+
+
+<div class="feat-card fade-in">
+
+<h3 class="feat-title">AutoRollback</h3>
+
+<p class="feat-desc">
+Automatic document snapshots every 2–30 minutes (configurable). When ransomware is detected, modified documents are restored from backup.
+</p>
+
+<div class="feat-tags">
+<span class="tag">Snapshot backup</span>
+<span class="tag">2–30 min interval</span>
+</div>
+
+</div>
+
+
+<div class="feat-card fade-in">
+
+<h3 class="feat-title">Honeypot Detection</h3>
+
+<p class="feat-desc">
+Hidden decoy files (hidden + system attributes) placed in 9 strategic locations including Desktop, Documents, Downloads, and OneDrive. Access triggers an instant alert.
+</p>
+
+<div class="feat-tags">
+<span class="tag">9 locations</span>
+<span class="tag">Max 20/folder</span>
+</div>
+
+</div>
+
+
+<div class="feat-card fade-in">
+
+<h3 class="feat-title">Self Defense</h3>
+
+<p class="feat-desc">
+Patriot protects itself from termination attempts. Detects Process Hacker, x64dbg, OllyDbg, and 19 additional attacker tools used to terminate security processes.
+</p>
+
+<div class="feat-tags">
+<span class="tag">22 kill tools</span>
+<span class="tag">Anti-debug</span>
+</div>
+
+</div>
+
+
+<div class="feat-card fade-in">
+
+<h3 class="feat-title">Quarantine Management</h3>
+
+<p class="feat-desc">
+Quarantine management GUI: restore (password protected), permanent deletion, or whitelist + restore. Supports multi-select operations for batch actions.
+</p>
+
+</div>
+
+
+<div class="feat-card fade-in">
+
+<h3 class="feat-title">Smart Whitelist</h3>
+
+<p class="feat-desc">
+Whitelist by path, SHA-256 hash, or folder. Integrity verification is performed during load — empty CSV rows are ignored.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION: GUIDE
+════════════════════════════════════════════════════ -->
+<div id="sec-guide" class="spa-section">
+  <div style="height:var(--nav-h)"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="grid-bg" aria-hidden="true"></div>
+
+
+<div class="page-hero">
+  <span class="page-hero-tag">// GUIDE</span>
+  <h1 class="page-hero-title">Complete <span class="accent">Guide</span></h1>
+  <p class="page-hero-desc">Installation, configuration, SIEM integration, & Geo IP + Time Control guide.</p>
+</div>
+
+<div class="doc-layout">
+  <aside class="doc-sidebar">
+    <div class="doc-nav-title">Table of Contents</div>
+    <ul class="doc-nav-list">
+      <li><a href="#install" class="doc-nav-link active">Installation</a></li>
+      <li><a href="#config" class="doc-nav-link">Configuration</a></li>
+      <li><a href="#howto" class="doc-nav-link">Howto Use</a></li>
+      <li><a href="#siem" class="doc-nav-link">SIEM Integration </a></li>
+      <li><a href="#cloud" class="doc-nav-link">Cloud Update</a></li>
+      <li><a href="#quarantine" class="doc-nav-link">Quarantine</a></li>
+      <li><a href="#rollback" class="doc-nav-link">AutoRollback</a></li>
+    </ul>
+  </aside>
+
+  <main class="doc-content">
+
+    <div class="doc-section" id="install">
+      <h2 class="doc-h2">Installation</h2>
+      <h3 class="doc-h3">Requirements</h3>
+      <table class="doc-table">
+        <thead><tr><th>Component</th><th>Minimum Version</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Windows</td><td>7/10/11 (64-bit)</td><td>Server 2012/2019/2022 are also supported</td></tr>
+          <tr><td>Privileges</td><td>Administrator</td><td>Required for WMI, Firewall, and Event Log access</td></tr>
+          <tr><td>.NET Framework</td><td>4.x</td><td>Included in Windows 10+</td></tr>
+          <tr><td>Internet</td><td>Optional</td><td>Required for cloud database updates</td></tr>
+        </tbody>
+      </table>
+      <h3 class="doc-h3">Installation Steps</h3>
+      <div class="code-block">
+        <div class="code-header"><span class="code-lang">Standard Installation (Admin)</span><button class="code-copy" onclick="copyCode(this)" data-code="1. Run installer as Administrator&#10;patriot_setup.exe&#10;&#10;2. Verify installation&#10;sc query PatriotUltraBlocker">Copy</button></div>
+        <pre class="code-pre"><span class="c-comment">1. Run installer as Administrator</span>
+patriot_setup.exe
+
+<span class="c-comment">2. Verify installation</span>
+sc query PatriotUltraBlocker</pre>
+      </div>
+      <div class="doc-note">Installer verifies SHA-256 for every binary before extraction. Do not modify or repackage the installer.</div>
+    </div>
+
+    <div class="doc-section" id="config">
+      <h2 class="doc-h2">Configuration</h2>
+      <h3 class="doc-h3">Detection Threshold</h3>
+      <table class="doc-table">
+        <thead><tr><th>Key</th><th>Default</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>backup_quota_mb</code></td><td>2048</td><td>Rollback backup quota (MB)</td></tr>
+          <tr><td><code>backup_interval_min</code></td><td>5</td><td>Snapshot interval (minutes)</td></tr>
+	  <tr><td><code>allow_country_codes</code></td><td>ID</td><td>GEO-IP allow country (codes)</td></tr>
+	  <tr><td><code>geo_times_rules</code></td><td>sat/sun</td><td>GEO-IP times rules (codes)</td></tr>
+ 	  <tr><td><code>geo_controlled_ports</code></td><td>445, 139, 3389</td><td>GEO-IP controlled ports (codes)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="doc-section" id="howto">
+      <h2 class="doc-h2">Howto Use</h2>
+      <h3 class="doc-h3">First Launch</h3>
+	<div class="doc-warn">- Patriot starts minimized to the system tray.</div>
+	<div class="doc-warn">- Double-click the shield icon in the tray to open the dashboard.</div>
+	<div class="doc-warn">- On first launch, the threat database is downloaded automatically (requires internet; ~2 MB download).</div>
+	<div class="doc-warn">- Dashboard appears after database is ready.</div>
+
+      <h3 class="doc-h3">Dashboard Overview</h3>
+      <table class="doc-table">
+        <thead><tr><th>Component</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>Overview</code></td><td>Protection status, Blocked today count and uptime, Shield and Self Defense status, Last database sync time, Threat activity summary</td></tr>
+          <tr><td><code>Analytics</code></td><td>Timeline of recent threat events, Top suspicious processes by score, Ransomware family detection history, Attack chain visualization</td></tr>
+          <tr><td><code>Modules</code></td><td>Toggle each of the 16 detection modules, Enable All / Disable All buttons, Changes take effect immediately</td></tr>
+          <tr><td><code>Rules</code></td><td>Application Rules, Ransomware Hashes, Network Rules</td></tr>
+          <tr><td><code>Tools</code></td><td>Quarantine, Whitelist, Event Logs, Rollback/Backups</td></tr>
+	  <tr><td><code>Integration</code></td><td>SIEM Integration (Wazuh), connect to central management server</td></tr>
+	  <tr><td><code>Settings</code></td><td>Backup Disk Quota, Backup Interval, GEO-IP Time Control</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="doc-section" id="siem">
+      <h2 class="doc-h2">SIEM Integration (Wazuh)</h2>
+      <div class="doc-warn">Plaintext connections to remote hosts are blocked by default. Always use TLS via stunnel.</div>
+      <h3 class="doc-h3">Stunnel Configuration</h3>
+      <div class="code-block">
+        <div class="code-header"><span class="code-lang">stunnel.conf</span><button class="code-copy" onclick="copyCode(this)" data-code="[wazuh-tls]&#10;client  = yes&#10;accept  = 127.0.0.1:51514&#10;connect = WAZUH_SERVER_IP:1514&#10;CAfile  = /etc/stunnel/wazuh-ca.crt&#10;verify  = 2">Copy</button></div>
+        <pre class="code-pre"><span class="c-bracket">[wazuh-tls]</span>
+<span class="c-key">client</span>  = <span class="c-val">yes</span>
+<span class="c-key">accept</span>  = <span class="c-val">127.0.0.1:51514</span>
+<span class="c-key">connect</span> = <span class="c-val">WAZUH_SERVER_IP:1514</span>
+<span class="c-key">CAfile</span>  = <span class="c-val">/etc/stunnel/wazuh-ca.crt</span>
+<span class="c-key">verify</span>  = <span class="c-val">2</span></pre>
+      </div>
+      <h3 class="doc-h3">Configuration</h3>
+      <div class="code-block">
+        <div class="code-header"><span class="code-lang">config.ini</span><button class="code-copy" onclick="copyCode(this)" data-code="[siem]&#10;siem_active=true&#10;siem_host=WAZUH_SERVER_IP&#10;siem_port=1514&#10;siem_use_tls_proxy=true&#10;siem_tls_local_port=51514">Copy</button></div>
+        <pre class="code-pre"><span class="c-bracket">[siem]</span>
+<span class="c-key">siem_active</span>=<span class="c-val">true</span>
+<span class="c-key">siem_host</span>=<span class="c-val">WAZUH_SERVER_IP</span>
+<span class="c-key">siem_port</span>=<span class="c-val">1514</span>
+<span class="c-key">siem_use_tls_proxy</span>=<span class="c-val">true</span>
+<span class="c-key">siem_tls_local_port</span>=<span class="c-val">51514</span></pre>
+      </div>
+      <h3 class="doc-h3">Format Event JSON</h3>
+      <div class="code-block">
+        <div class="code-header"><span class="code-lang">Event sample</span></div>
+        <pre class="code-pre">{
+  <span class="c-key">"timestamp"</span>: <span class="c-val">"2026/03/28 14:30:00"</span>,
+  <span class="c-key">"agent"</span>:     <span class="c-val">"patriot"</span>,
+  <span class="c-key">"event"</span>:     <span class="c-val">"process_block"</span>,
+  <span class="c-key">"process"</span>:   <span class="c-val">"mimikatz.exe"</span>,
+  <span class="c-key">"reason"</span>:    <span class="c-val">"EDR Killer tool (SHA256)"</span>,
+  <span class="c-key">"host"</span>:      <span class="c-val">"WORKSTATION-01"</span>
+}</pre>
+      </div>
+      <h3 class="doc-h3">Windows Event Log IDs</h3>
+      <table class="doc-table">
+        <thead><tr><th>Event ID</th><th>Tipe</th><th>Pemicu</th></tr></thead>
+        <tbody>
+          <tr><td><code>1001</code></td><td>BLOCK</td><td>Proses diblokir dan dikarantina</td></tr>
+          <tr><td><code>1002</code></td><td>ALERT</td><td>Aktivitas mencurigakan, skor di bawah threshold block</td></tr>
+          <tr><td><code>1003</code></td><td>RANSOM</td><td>Ransomware terdeteksi (hash atau behavior)</td></tr>
+          <tr><td><code>1004</code></td><td>SELFDEFENSE</td><td>Upaya terminasi Patriot terdeteksi</td></tr>
+          <tr><td><code>1005</code></td><td>INFO</td><td>Event informasional (DB update, startup)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="doc-section" id="cloud">
+      <h2 class="doc-h2">Cloud Update</h2>
+      <p class="doc-p">IOC databases are updated from the cloud every 6 hours asynchronously. Cloud URLs are stored in an encrypted file using DPAPI.</p>
+      <table class="doc-table">
+        <thead><tr><th>Database</th><th>Local File</th><th>Content</th></tr></thead>
+        <tbody>
+          <tr><td>Applications</td><td><code>application_security.csv</code></td><td>Hash + name + threat application category</td></tr>
+          <tr><td>Ransomware</td><td><code>ransomware_hash.csv</code></td><td>Hash + family + severity level</td></tr>
+          <tr><td>Network Denylist</td><td><code>network_denylist.csv</code></td><td>IP/domain + threat category</td></tr>
+        </tbody>
+      </table>
+      <div class="doc-note">Each file is SHA-256 verified via a sidecar file before use (fail-closed). If the sidecar is unavailable or the hashes don't match, the old file is retained.</div>
+    </div>
+
+    <div class="doc-section" id="quarantine">
+      <h2 class="doc-h2">Quarantine</h2>
+      <p class="doc-p">Malicious files are quarantined in <code>.qtn</code> — AES-256 encrypted with a key based on ComputerName + UserName + install date. The files are stored in %ALLUSERSPROFILE%\Patriot\quarantine\</code>.</p>
+      <p class="doc-p">Restore and whitelist+restore operations require administrator password verification. Permanent delete operations require explicit confirmation.</p>
+    </div>
+
+    <div class="doc-section" id="rollback">
+      <h2 class="doc-h2">AutoRollback</h2>
+      <p class="doc-p">Document snapshots are taken every 2–30 minutes (configurable via backup_interval_min). When ransomware is detected and blocked, documents modified during the process are automatically restored from the last snapshot.</p>
+      <div class="doc-note">The backup quota is controlled via backup_quota_mb (default 2048 MB). When the quota is full, older snapshots are automatically deleted (FIFO).</div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ══ FOOTER ══ -->
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION: DOWNLOAD
+════════════════════════════════════════════════════ -->
+<div id="sec-download" class="spa-section">
+  <div style="height:var(--nav-h)"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="grid-bg" aria-hidden="true"></div>
+
+
+<div class="page-hero">
+  <span class="page-hero-tag">// PRODUCT DOWNLOAD</span>
+  <h1 class="page-hero-title">Product &amp; <span class="accent">Download</span></h1>
+  <p class="page-hero-desc">All product version.</p>
+</div>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+
+    <div class="cl-list">
+    
+      <!-- v1.0.3 -->
+      <div class="cl-version" id="v102">
+        <div class="cl-version-head">
+          <span class="cl-ver-num">v1.0.3</span>
+          <span class="cl-ver-date">25 April 2026</span>
+          <span class="cl-ver-badge cl-latest">LATEST</span>
+          <a href=""
+             class="cl-dl-btn" title="Unduh Patriot Ultra Blocker v1.0.3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Unduh v1.0.3
+          </a>
+        </div>
+        <div class="cl-version-body">
+          <div>
+            <span class="cl-group-title cl-feat">PATRIOT ULTRA BLOCKER</span>
+            <ul class="cl-items">
+              <li class="cl-item">Canary Watcher.</li>
+              <li class="cl-item">Evasion Detection (ETW & AMSI).</li>
+              <li class="cl-item">LSASS & Credential Dump Detection.</li>
+              <li class="cl-item">Named Pipe monitor.</li>
+              <li class="cl-item">On-demand Scanner (File & Folder).</li>
+              <li class="cl-item">Privilege Escalation Detection & UAC Bypass.</li>
+              <li class="cl-item">Process Interception.</li>
+              <li class="cl-item">Shannon Entropy Detection.</li>            
+	      <li class="cl-item">USB Watch.</li>	      
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- v1.0.2 -->
+      <div class="cl-version" id="v102">
+        <div class="cl-version-head">
+          <span class="cl-ver-num">v1.0.2</span>
+          <span class="cl-ver-date">5 April 2026</span>
+          <span class="cl-ver-badge">OLD</span>
+          <a href=""
+             class="cl-dl-btn" title="Unduh Patriot Ultra Blocker v1.0.2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Unduh v1.0.2
+          </a>
+        </div>
+        <div class="cl-version-body">
+          <div>
+            <span class="cl-group-title cl-feat">PATRIOT ULTRA BLOCKER</span>
+            <ul class="cl-items">
+              <li class="cl-item">Embedded YARA Engine (30+ rule ransomware & 8 source GitHub).</li>
+              <li class="cl-item">Browser Extension Anomaly Detection (Chrome, Edge, Brave, Firefox).</li>
+              <li class="cl-item">Registry Autorun, Service Integrity, Scheduled Task, WMI Subscription monitor.</li>
+              <li class="cl-item">Add Threat Intelligence Feed: Feodo Tracker, ThreatFox, MISP OSINT.</li>
+              <li class="cl-item">3 Layer Interception (network, browser, removable).</li>
+	      <li class="cl-item">Fix Several bugs.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- v1.0.1 -->
+      <div class="cl-version" id="v101">
+        <div class="cl-version-head">
+          <span class="cl-ver-num">v1.0.1</span>
+          <span class="cl-ver-date">28 Maret 2026</span>
+          <span class="cl-ver-badge">OLD</span>
+          <a href=""
+             class="cl-dl-btn" title="Unduh Patriot Ultra Blocker v1.0.1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Unduh v1.0.1
+          </a>
+        </div>
+        <div class="cl-version-body">
+          <div>
+            <span class="cl-group-title cl-feat">PATRIOT ULTRA BLOCKER</span>
+            <ul class="cl-items">
+              <li class="cl-item">Modul Geo IP + Time Control.</li>
+              <li class="cl-item">Honeypot file.</li>
+              <li class="cl-item">SIEM Integration (Wazuh).</li>
+              <li class="cl-item">Rollback file and folder.</li>
+              <li class="cl-item">C2 Beacon & DGA Detection.</li>
+              <li class="cl-item">URLhaus Feed (Abuse.ch).</li>
+              <li class="cl-item">EDR Killer Detection.</li>
+              <li class="cl-item">Behavior Engine.</li>
+              <li class="cl-item">Hash & Process Detection.</li>
+              <li class="cl-item">Anti-Ransomware Tool.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+</div>
+
+<!-- ══ FOOTER (shared) ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="logo-shield">&#x2B21;</span>
+          <span class="logo-text">THINK-C<span class="logo-sub">CYBER COMMUNITY</span></span>
+        </div>
+        <p class="footer-tagline">Komunitas Keamanan Siber Indonesia<br/>Made in Indonesia &#x1F1EE;&#x1F1E9;</p>
+        <div class="footer-badges"><span class="fbadge">Est. 2026</span><span class="fbadge">Open Source</span></div>
+      </div>
+      <div class="footer-links-group">
+        <h4 class="footer-group-title">Tools</h4>
+        <a class="footer-link" onclick="showSection('feature')">Patriot Ultra Blocker</a>
+        <a class="footer-link" style="opacity:.5;cursor:default">Patriot Data Shield</a>
+        <a class="footer-link" style="opacity:.5;cursor:default">Patriot SIEM</a>
+        <a class="footer-link" style="opacity:.5;cursor:default">Patriot Firewall</a>
+      </div>
+      <div class="footer-links-group">
+        <h4 class="footer-group-title">Patriot UB</h4>
+        <a class="footer-link" onclick="showSection('feature')">Feature</a>
+        <a class="footer-link" onclick="showSection('guide')">Guide</a>
+        <a class="footer-link" onclick="showSection('download')">Download</a>
+      </div>
+      <div class="footer-links-group">
+        <h4 class="footer-group-title">Komunitas</h4>
+        <a href="https://github.com/thinkc-2023" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:thinkc2023@proton.me" class="footer-link">Report Bug</a>
+        <a href="mailto:thinkc2023@proton.me" class="footer-link">Kolaborasi</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&#xA9; 2026 Think-C Community. All rights reserved</p>
+      <p>Hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

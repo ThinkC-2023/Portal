@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Feature — Patriot Ultra Blocker</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<link rel="stylesheet" href="css/main.css"/>
+</head>
+
+<body>
+
+<div class="scanlines" aria-hidden="true"></div>
+<div class="grid-bg" aria-hidden="true"></div>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-shield">&#x2B21;</span>
+      <span class="logo-text">THINK-C</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="feature.html" class="nav-link active">Feature</a></li>
+      <li><a href="guide.html" class="nav-link">Guide</a></li>
+      <li><a href="download.html" class="nav-link">Download</a></li>
+      <li><a href="https://github.com/thinkc-2023/patriot-portal" class="nav-link nav-gh" target="_blank">GitHub</a></li>
+    </ul>
+
+    <button class="nav-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+
+<div class="page-hero">
+
+<span class="page-hero-tag">// FULL FEATURES</span>
+
+<h1 class="page-hero-title">
+Detection <span class="accent">Capabilities</span>
+</h1>
+
+<p class="page-hero-desc">
+Each protection layer is designed to catch threats that bypass the previous layer — from IOC hash detection to behavioral AI scoring.
+</p>
+
+</div>
+
+
+<section class="section" style="padding-top:0">
+<div class="container">
+
+<div class="section-header" style="text-align:left;margin-bottom:40px">
+<div class="section-tag">// LAYER 1 — IDENTITY</div>
+<h2 class="section-title">
+Hash & Process <span class="accent">Detection</span>
+</h2>
+</div>
+
+<div class="features-grid">
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">SHA-256 + SHA-1 Dual Hash</h3>
+
+<p class="feat-desc">
+IOC database supports both formats. SHA-256 as primary, SHA-1 as fallback. Hash result caching prevents re-computing identical files — capped at 5,000 entries.
+</p>
+
+<div class="feat-tags">
+<span class="tag">Hash Cache</span>
+<span class="tag">5000 entry cap</span>
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">Adaptive Scan Rate</h3>
+
+<p class="feat-desc">
+Scan intervals automatically adjust: 3 seconds during active threats, increasing to 15 seconds when CPU exceeds 75% or system is idle. Saves resources without sacrificing responsiveness.
+</p>
+
+<div class="feat-tags">
+<span class="tag">3–15 sec</span>
+<span class="tag">CPU-aware</span>
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">EDR Killer Detection</h3>
+
+<p class="feat-desc">
+Tools designed to disable AV/EDR receive an immediate score of 80 — blocked instantly without score accumulation. Detection via SHA-256 or SHA-1 hash.
+</p>
+
+<div class="feat-tags">
+<span class="tag">Score 80 instant</span>
+<span class="tag">No accumulation</span>
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">Process Reputation Score</h3>
+
+<p class="feat-desc">
+Each process maintains a cumulative reputation score across sessions. Reputation above 40 triggers immediate blocking without further evaluation.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="section section-dark">
+<div class="container">
+
+<div class="section-header" style="text-align:left;margin-bottom:40px">
+<div class="section-tag">// LAYER 2 — BEHAVIOR</div>
+<h2 class="section-title">
+Behavior <span class="accent">Engine</span>
+</h2>
+</div>
+
+<div class="features-grid">
+
+<div class="feat-card fade-in feat-card-large">
+<div class="feat-content">
+
+<h3 class="feat-title">
+Anti-Ransomware — Multi-Signal Detection
+</h3>
+
+<p class="feat-desc">
+Patriot detects ransomware from multiple behavioral signals simultaneously. No single technique — all signals contribute to a cumulative PID score.
+</p>
+
+<div class="feat-tags">
+<span class="tag">Mass file operation</span>
+<span class="tag">High entropy write</span>
+<span class="tag">Rename burst</span>
+<span class="tag">Slow-encrypt pattern</span>
+<span class="tag">Ransom note scan</span>
+</div>
+
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">LOLBin Detection</h3>
+
+<p class="feat-desc">
+Monitoring 23 Living-Off-The-Land binaries including PowerShell, Certutil, MSHTA, Rundll32, and Regsvr32. Detects abnormal usage based on parent-child execution context.
+</p>
+
+<div class="feat-tags">
+<span class="tag">23 binaries</span>
+<span class="tag">Parent chain</span>
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">Attack Chain Correlation</h3>
+
+<p class="feat-desc">
+Multi-stage correlation: suspicious downloads, execution, lateral movement, and exfiltration. Each stage increases the threat score — full patterns trigger immediate blocking.
+</p>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">Fileless Detection</h3>
+
+<p class="feat-desc">
+Detects in-memory execution via PowerShell encoded commands, WMI subscriptions, and script engine abuse. No disk file required — behavior patterns are sufficient.
+</p>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">Credential Dump Detection</h3>
+
+<p class="feat-desc">
+Detects attempts to read lsass.exe, dump SAM databases, and tools from the Mimikatz family. Alerts are deduplicated per PID to prevent notification spam.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section class="section">
+<div class="container">
+
+<div class="section-header" style="text-align:left;margin-bottom:40px">
+<div class="section-tag">// LAYER 3 — NETWORK</div>
+
+<h2 class="section-title">
+Network <span class="accent">Protection</span>
+</h2>
+</div>
+
+<div class="features-grid">
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">Network Denylist (Blacklist)</h3>
+
+<p class="feat-desc">
+Blocks malicious IPs and domains using the Windows Firewall API. Uses a non-blocking batch system — IPs are queued and flushed every 5 seconds.
+</p>
+
+<div class="feat-tags">
+<span class="tag">Batch flush 5s</span>
+<span class="tag">Non-blocking</span>
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">URLhaus Feed (Abuse.ch)</h3>
+
+<p class="feat-desc">
+Automatic synchronization every 6 hours with the public URLhaus feed — active malware domains and URLs. Zero configuration and no API key required.
+</p>
+
+<div class="feat-tags">
+<span class="tag">Zero-config</span>
+<span class="tag">Async download</span>
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">C2 Beacon + DGA Detection</h3>
+
+<p class="feat-desc">
+Detects periodic outbound connections indicating C2 beaconing. Includes detection of algorithmically generated domains (DGA) using entropy and character pattern analysis.
+</p>
+</div>
+
+
+<div class="feat-card fade-in feat-card-large">
+<div class="feat-content">
+
+<h3 class="feat-title">
+Geo IP + Time Control — New Feature
+</h3>
+
+<p class="feat-desc">
+Blocks inbound connections based on country origin and time schedule. Default rule blocks SMB/RDP access from outside Indonesia during weekends.
+</p>
+
+<div class="feat-tags">
+<span class="tag">20 rules max</span>
+<span class="tag">GeoIP cache 1h</span>
+<span class="tag">SMB 445 · RDP 3389</span>
+<span class="tag">Local IP exempt</span>
+</div>
+
+</div>
+</div>
+
+
+<div class="feat-card fade-in">
+<h3 class="feat-title">Lateral Movement Detection</h3>
+
+<p class="feat-desc">
+Detects PsExec, WMI remote execution, RDP brute force attempts, and suspicious lateral movement patterns across the network.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="section section-dark">
+
+<div class="container">
+
+<div class="section-header" style="text-align:left;margin-bottom:40px">
+
+<div class="section-tag">// LAYER 4 — RESPONSE</div>
+
+<h2 class="section-title">
+Protection & <span class="accent">Recovery</span>
+</h2>
+
+</div>
+
+
+<div class="features-grid">
+
+<div class="feat-card fade-in">
+
+<h3 class="feat-title">Suspend → Kill → Quarantine</h3>
+
+<p class="feat-desc">
+Malicious processes are suspended first (I/O freeze) before termination — preventing ransomware from writing additional files during the kill phase. Files are quarantined using AES-256 encryption.
+</p>
+
+<div class="feat-tags">
+<span class="tag">NtSuspendProcess</span>
+<span class="tag">AES-256 .qtn</span>
+</div>
+
+</div>
+
+
+<div class="feat-card fade-in">
+
+<h3 class="feat-title">AutoRollback</h3>
+
+<p class="feat-desc">
+Automatic document snapshots every 2–30 minutes (configurable). When ransomware is detected, modified documents are restored from backup.
+</p>
+
+<div class="feat-tags">
+<span class="tag">Snapshot backup</span>
+<span class="tag">2–30 min interval</span>
+</div>
+
+</div>
+
+
+<div class="feat-card fade-in">
+
+<h3 class="feat-title">Honeypot Detection</h3>
+
+<p class="feat-desc">
+Hidden decoy files (hidden + system attributes) placed in 9 strategic locations including Desktop, Documents, Downloads, and OneDrive. Access triggers an instant alert.
+</p>
+
+<div class="feat-tags">
+<span class="tag">9 locations</span>
+<span class="tag">Max 20/folder</span>
+</div>
+
+</div>
+
+
+<div class="feat-card fade-in">
+
+<h3 class="feat-title">Self Defense</h3>
+
+<p class="feat-desc">
+Patriot protects itself from termination attempts. Detects Process Hacker, x64dbg, OllyDbg, and 19 additional attacker tools used to terminate security processes.
+</p>
+
+<div class="feat-tags">
+<span class="tag">22 kill tools</span>
+<span class="tag">Anti-debug</span>
+</div>
+
+</div>
+
+
+<div class="feat-card fade-in">
+
+<h3 class="feat-title">Quarantine Management</h3>
+
+<p class="feat-desc">
+Quarantine management GUI: restore (password protected), permanent deletion, or whitelist + restore. Supports multi-select operations for batch actions.
+</p>
+
+</div>
+
+
+<div class="feat-card fade-in">
+
+<h3 class="feat-title">Smart Whitelist</h3>
+
+<p class="feat-desc">
+Whitelist by path, SHA-256 hash, or folder. Integrity verification is performed during load — empty CSV rows are ignored.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<div class="footer-logo">
+          <span class="logo-shield">⬡</span>
+          <span class="logo-text">PATRIOT<span class="logo-sub">ULTRA BLOCKER</span></span>
+        </div>
+        <p class="footer-tagline">mini-EDR & Anti-Ransomware<br/>Made in Indonesia 🇮🇩</p>
+        <div class="footer-badges">
+          <span class="fbadge">Windows 7/10/11</span>
+          <span class="fbadge">v1.0.2</span>
+        </div>
+
+</div>
+
+
+<div class="footer-links-group">
+        <h4 class="footer-group-title">Produk</h4>
+        <a href="feature.html" class="footer-link">Feature</a>
+        <a href="guide.html" class="footer-link">Guide</a>
+        <a href="download.html" class="footer-link">Download</a>
+      </div>
+      <div class="footer-links-group">
+        <h4 class="footer-group-title">Developer</h4>
+        <a href="https://github.com/thinkc-2023/patriot-portal" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:thinkc2023@proton.me" class="footer-link">Report Bug</a>
+        <a href="mailto:thinkc2023@proton.me" class="footer-link">Request Fitur</a>
+      </div>
+
+</div>
+
+
+<div class="footer-bottom">
+<p>© 2026 Think-C. All rights reserved</p>
+<p>Hosted on <a href="https://pages.github.com">GitHub Pages</a></p>
+</div>
+
+</div>
+</footer>
+
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
